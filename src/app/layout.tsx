@@ -4,6 +4,10 @@ import { Inter } from 'next/font/google'
 import TopBar from '@/components/TopBar'
 import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
+import { Provider } from 'react-redux'
+import { store } from '@/redux/store'
+import { MyProvider } from '@/context/MyContext'
+import Layout from '@/components/Layout'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,11 +24,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+  <Layout>
         <TopBar/>
         <NavBar/>
         {children}
         <Footer/>
+  </Layout>
         </body>
+      
     </html>
   )
 }

@@ -1,12 +1,15 @@
+// import CategorySlider from "@/components/CategorySlider";
 import Featured from "@/components/Featured";
 import Offer from "@/components/Offer";
-import Slider from "@/components/Slider";
+import SliderBanner from "@/components/SliderBanner";
+
 
 export default function Home() {
   return (
     <main>
-      <Slider/>
+      <SliderBanner/>
       <Featured/>
+      {/* <CategorySlider /> */}
       <Offer/>
     </main>
   )

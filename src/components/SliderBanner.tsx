@@ -1,14 +1,15 @@
 "use client"
 import React, { useState,useEffect } from 'react'
+import HoverCartComponent from './HoverCartComponent';
 const items = [
   {id:1,title:"Our burgers are waiting for you. Hasty and tasty!",img:"slide1.png"},
   {id:2,title:"Our burgers are waiting for you. Hasty and tasty!",img:"slide2.png"},
-  {id:3,title:"Our burgers are waiting for you. Hasty and tasty!",img:"slide3.png"},
-  // {id:4,title:"Our burgers are waiting for you. Hasty and tasty!",img:"/"},
+  {id:3,title:"Our burgers are waiting for you. Hasty and tasty!",img:"slide1.png"},
 
 ];
 
-const Slider = () => {
+const SliderBanner = () => {
+  const product = true;
   const [slide,setSlide] = useState(0)
   useEffect(() => {  
     const interval = setInterval(()=>{
@@ -18,7 +19,7 @@ const Slider = () => {
   }, [])
   
   return (
-    <div className='flex flex-col md:flex-row w-full h-[calc(100vh-6rem)]'>
+    <div className='flex flex-col md:flex-row w-full h-[calc(100vh-6rem)] relative'>
         {/* LEFT  */}
         <div className='flex-1 bg-red-600 md:h-full flex flex-col justify-center items-center gap-4 overflow-hidden'>
           <h1 className='overflow-hidden text-4xl space-x-1 px-6 text-center font-semibold text-yellow-300'>{items[slide].title}</h1>
@@ -28,8 +29,11 @@ const Slider = () => {
         <div className='flex-1 md:h-full'>
           <img src={items[slide].img} alt="" className='h-full w-full object-cover'/>
         </div>
+        {
+          product ? "" : <HoverCartComponent/>
+        }
     </div>
   )
 }
 
-export default Slider
+export default SliderBanner

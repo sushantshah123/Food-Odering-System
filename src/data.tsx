@@ -1,15 +1,17 @@
-type Product = {
-    id: number;
-    title: string;
-    desc?: string;
-    img?: string;
-    price: number;
-    options?: { title: string; additionalPrice: number }[];
-  };
+import { Product } from "../type";
+
+// type Product = {
+//     id: number;
+//     title: string;
+//     desc?: string;
+//     img?: string;
+//     price: number;
+//     options?: { title: string; additionalPrice: number }[];
+//   };
   
-  type Products = Product[];
+//   type Products = Product[];
   
-  export const featuredProducts: Products = [
+  export const featuredProducts: Product[] = [
     {
       id: 1,
       title: "Sicilian",

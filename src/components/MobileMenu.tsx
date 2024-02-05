@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react'
 import CartIcon from './CartIcon';
+import {BsSun, BsFillMoonFill} from "react-icons/bs"
 
 const links = [
   {id:4,title:"Home",url:"/"},
@@ -10,7 +11,8 @@ const links = [
 
 ];
 
-const MobileMenu = () => {
+
+const MobileMenu = ({darkMode, setDarkMode}) => {
   const [open, setOpen] = useState(false)
   
   // TEMPORARY 
@@ -47,6 +49,11 @@ const MobileMenu = () => {
       <Link href="/orders" onClick={()=>setOpen(false)}>Orders</Link>
     }
       </div>
+    <div className='w-[70px] h-[28px] border-[1px] rounded-full border-black flex justify-between items-center relative'>
+      <div className='sun w-[30px] h-full rounded-full m-[1px] flex justify-center items-center text-[20px]'><BsSun /></div>
+      <div className=' w-[30px] h-full rounded-full m-[1px] flex justify-center items-center text-[20px]'><BsFillMoonFill /></div>
+      <div className={`w-[26px] h-[26px] rounded-full absolute bg-black top-[1px] cursor-pointer ${darkMode? "left-[1px]" : "right-[1px]"}`} onClick={()=>setDarkMode(!darkMode)}></div>
+    </div>
     <div onClick={()=>setOpen(false)}>
     <CartIcon/>
     </div>
